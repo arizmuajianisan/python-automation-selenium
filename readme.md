@@ -2,6 +2,8 @@
 
 This project automates tasks in a web-based interface using Selenium WebDriver. The script performs actions such as logging into a system, navigating through pages, selecting options, downloading files, and processing downloaded data.
 
+https://github.com/arizmuajianisan/python-automation-selenium/blob/ff5fa11bde9b365e4ed0469751852adedf76fb81/result.mp4
+
 ## Features
 
 - **Automated Web Interaction**: Logs into a web application, navigates through pages, and performs actions such as form submissions, checkbox selections, and file downloads.
