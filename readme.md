@@ -56,12 +56,14 @@ This project automates tasks in a web-based interface using Selenium WebDriver. 
    ```
 
 ## Project Structure
+```bash
 .
 ├── main.py                # Main script for automation
 ├── requirements.txt       # Python dependencies
 ├── README.md              # This readme file
 ├── chromedriver           # ChromeDriver executable (or it can be placed elsewhere in PATH)
 └── env/                   # Virtual environment directory (optional)
+```
 
 ## Functions Overview
 - **initialize_browser()**: Initializes the Selenium WebDriver.
