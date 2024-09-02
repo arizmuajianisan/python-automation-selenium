@@ -1,0 +1,13 @@
+# Temporary files
+*.tmp
+__pycache__
+
+# Downloaded files
+*.zip
+*.csv
+
+# Folder data
+extracted_files/
+
+# Credentials
+.env
