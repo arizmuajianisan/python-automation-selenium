@@ -12,20 +12,18 @@ import sys
 from datetime import datetime
 import zipfile
 from merge_csv import merge_csv_files
-from cleaner import clean_directory
+from cleaner import clean_directories
 from dotenv import load_dotenv
 
 load_dotenv()
 
 # Configurations
-url = "http://192.168.147.74/ConMasManager/"
-login_page = url + "Login"
+url = os.getenv("URL")
 data_output_page = url + "DataOutput"
 username = os.getenv("USER")
 password = os.getenv("PASS")
 project_dir = os.path.dirname(os.path.abspath(__file__))  # Root directory of the code
 download_dir = project_dir  # Set download directory to the code directory
-print(download_dir)
 
 
 # Initialize browser
@@ -329,8 +327,7 @@ def main():
             f"Automation completed successfully. Elapsed time: {elapsed_time} seconds"
         )
 
-        clean_directory("./extracted_files")
-        clean_directory(download_dir)
+        clean_directory(["./extracted_files", download_dir])
     except Exception as e:
         print(f"An error occurred: {e}")
     finally:
