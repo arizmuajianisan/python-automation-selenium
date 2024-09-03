@@ -12,6 +12,11 @@ def merge_csv_files(input_dir, output_file):
     # List all CSV files in the directory
     csv_files = [f for f in os.listdir(input_dir) if f.endswith(".csv")]
 
+    output_dir = os.path.dirname(output_file)
+    if output_dir and not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+        print(f"Created output directory: {output_dir}")
+
     # Initialize a list to hold DataFrames
     df_list = []
 
@@ -27,7 +32,7 @@ def merge_csv_files(input_dir, output_file):
         if i == 0:
             df_list.append(df)  # First file, include header
         else:
-            df_list.append(df)  # Subsequent files, no header
+            df_list.append(df.iloc[1:])  # Subsequent files, no header
 
     # Concatenate all DataFrames in the list into a single DataFrame
     merged_df = pd.concat(df_list, ignore_index=True)
@@ -40,6 +45,6 @@ def merge_csv_files(input_dir, output_file):
 # Example usage
 if __name__ == "__main__":
     input_directory = os.path.join("./extracted_files")
-    output_csv = os.path.join("./merged_output.csv")
+    output_csv = os.path.join("./result/merged_output.csv")
 
     merge_csv_files(input_directory, output_csv)
