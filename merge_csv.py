@@ -28,11 +28,12 @@ def merge_csv_files(input_dir, output_file):
         # Read the CSV file into a DataFrame
         df = pd.read_csv(file_path)
 
-        # Append to list, skipping header for subsequent files
-        if i == 0:
-            df_list.append(df)  # First file, include header
-        else:
-            df_list.append(df.iloc[1:])  # Subsequent files, no header
+        # Check if the DataFrame has more than one row (excluding header)
+        if df.shape[0] > 1:
+            df_list.append(df)
+        elif df.shape[0] == 1:
+            # If the DataFrame has only one row, include it without the header
+            df_list.append(df)
 
     # Concatenate all DataFrames in the list into a single DataFrame
     merged_df = pd.concat(df_list, ignore_index=True)
