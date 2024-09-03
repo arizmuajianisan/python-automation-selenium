@@ -4,7 +4,7 @@ import pandas as pd
 import pantab as pt
 
 
-def export_to_hyper(csv_path, hyper_dir, filename="pcb_molding.hyper"):
+def export_to_hyper(csv_path, hyper_dir="./hyper_dir", filename="pcb_molding.hyper"):
     """
     Reads a CSV file from a specified path and exports the data to a Hyper file in the specified folder.
 
