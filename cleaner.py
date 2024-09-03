@@ -22,7 +22,8 @@ def clean_directories(directories):
                 except Exception as e:
                     print(f"Failed to delete {file_path}: {e}")
 
-# Example usage:
-directories_to_clean = ["path/to/folder1", "path/to/folder2", "path/to/folder3"]
-clean_directories(directories_to_clean)
 
+if __name__ == "__main__":
+    # Example usage:
+    directories_to_clean = ["path/to/folder1", "path/to/folder2", "path/to/folder3"]
+    clean_directories(directories_to_clean)
