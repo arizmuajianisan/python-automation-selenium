@@ -15,7 +15,6 @@ def export_to_hyper(csv_path, hyper_dir="./hyper_dir", filename="pcb_molding.hyp
     try:
         # Read the CSV file into a DataFrame
         df = pd.read_csv(csv_path)
-        print(df.columns)
         print(f"Read CSV from {csv_path}")
 
         # Ensure the folder exists
