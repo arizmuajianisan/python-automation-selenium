@@ -345,8 +345,9 @@ def extract_zip(zip_path, extract_to):
 # Main function to run the automation
 def main():
     print("Starting process...\n")
-    # for month in range(1, 13):
-    for month in range(1,13):
+
+    current_month = datetime.datetime.now().month
+    for month in range(1, current_month + 1):
         print(f"Processing month: {calendar.month_name[month]}")
         # Get the first day of the month
         date_selection_start = f"2024/{month:02d}/01"
@@ -369,7 +370,6 @@ def main():
             os.makedirs(input_directory, exist_ok=True)
             output_csv = os.path.join("./result", f"merged_output_{month:02d}.csv")
 
-
             #clean_directories(
             #    ["./extracted_files", zip_dir]
             #)  # This section is used to clean the directory
@@ -382,6 +382,9 @@ def main():
             print(f"An error occurred for {calendar.month_name[month]}: {e}")
         finally:
             browser.quit()
+
+        if month == current_month:
+            break
 
     # Merge CSV files after the loop
     for month in range(1,13):
