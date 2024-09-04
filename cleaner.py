@@ -14,7 +14,7 @@ def clean_directories(directories):
 
         # Iterate through the files and delete .tmp and .zip files
         for file in files:
-            if file.endswith(".tmp") or file.endswith(".zip"):
+            if file.endswith(".tmp") or file.endswith(".zip") or file.endswith(".csv"):
                 file_path = os.path.join(directory, file)
                 try:
                     os.remove(file_path)
