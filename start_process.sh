@@ -8,6 +8,17 @@ then
     exit 1
 fi
 
+# Activate conda environment
+if command -v conda &> /dev/null; then
+    echo "Activating conda environment 'iot-automation'..."
+    eval "$(conda shell.bash hook)"
+    conda activate iot-automation
+else
+    echo "Conda is not installed or not in PATH. Please install Conda or add it to your PATH."
+    exit 1
+fi
+
+
 # Check if the session already exists
 if tmux has-session -t "scraper" 2>/dev/null; then
     echo "Session 'scraper' already exists. Attaching to it."
