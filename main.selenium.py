@@ -51,7 +51,15 @@ def initialize_browser():
         },
     )
 
-    browser = webdriver.Chrome(options=chrome_options)
+    # Check the OS and locate ChromeDriver
+    if sys.platform.startswith('linux'):
+        import subprocess
+        chromedriver_path = subprocess.check_output(['whereis', 'chromedriver']).decode().split()[1]
+        service = Service(executable_path=chromedriver_path)
+    else:  # Windows
+        service = Service()
+
+    browser = webdriver.Chrome(service=service, options=chrome_options)
     browser.set_page_load_timeout(3000000)
     browser.get(url)
     return browser
