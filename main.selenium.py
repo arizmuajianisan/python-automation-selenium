@@ -346,7 +346,7 @@ def extract_zip(zip_path, extract_to):
 def main():
     print("Starting process...\n")
 
-    current_month = datetime.datetime.now().month
+    current_month = datetime.now().month
     for month in range(1, current_month + 1):
         print(f"Processing month: {calendar.month_name[month]}")
         # Get the first day of the month
