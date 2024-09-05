@@ -93,7 +93,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     """
     try:
         WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "img_search"))
+            EC.presence_of_element_located((By.XPATH, "//*[@id='FiltersTable']/tbody/tr[1]/td[2]/a[1]"))
         ).click()
         print("Step 2: Success to click the search button")
     except Exception as e:
@@ -146,10 +146,10 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     Step 6: Click the NEXT button to move to the Export page
     """
     try:
-        # browser.find_element(
-        #     By.XPATH, "//*[@id='FiltersTable']/tbody/tr[1]/td[2]/a[2]"
-        # ).click()
-        browser.find_element(By.CLASS_NAME, "img_next").click()
+        browser.find_element(
+            By.XPATH, "//*[@id='FiltersTable']/tbody/tr[1]/td[2]/a[2]"
+        ).click()
+        #browser.find_element(By.CLASS_NAME, "img_next").click()
         wait_until_page_loads(browser)
         print("Step 6: Success to click the Export button")
     except Exception as e:
@@ -160,7 +160,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     Step 7: Select the only 'Completed' form
     """
     try:
-        select_element = browser.find_element(By.ID, "EditReferStatus")
+        select_element = browser.find_element(By.XPATH, "//*[@id='EditReferStatus']")
         # print("Select option: %s\n", select_element.text) # Debug list optons
         select = Select(select_element)
         select.select_by_visible_text("Completed")
@@ -180,7 +180,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     """
     try:
         WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, "img_search"))
+            EC.element_to_be_clickable((By.XPATH, "//*[@id='FiltersTable']/tbody/tr/td[2]/a"))
         ).click()
         print("Step 8 Search button clicked")
     except Exception as e:
@@ -218,7 +218,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     Step 10: Click apply search button
     """
     try:
-        browser.find_element(By.ID, "conmasSearchButton").click()
+        browser.find_element(By.XPATH, "//*[@id='conmasSearchButton']").click()
 
         # WebDriverWait(browser, 10).until(
         #     EC.presence_of_element_located((By.ID, "conmasSearchButton"))
@@ -272,7 +272,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     """
     try:
         WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, "img_next"))
+            EC.element_to_be_clickable((By.XPATH, "//*[@id='FiltersTable']/tbody/tr/td[2]/button"))
         ).click()
         print("Step 12 Success to select the form that want to")
     except Exception as e:
@@ -284,7 +284,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     """
     try:
         WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.CLASS_NAME, "img_next"))
+            EC.element_to_be_clickable((By.XPATH, "//*[@id='DetailSection']/div/form/div[1]/input"))
         ).click()
         print("Step 13 Success click Next button")
     except Exception as e:
@@ -298,7 +298,7 @@ def navigate_and_perform_tasks(browser, date_selection_start, date_selection_end
     """
     try:
         WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "img_output_csv"))
+            EC.presence_of_element_located((By.XPATH, "//*[@id='DetailSection']/div/div[2]/input"))
         ).click()
         print("Step 14: Success to find the OUTPUT button")
         print(f"\nDownload started {10*'*'}")
